@@ -31,9 +31,10 @@ rule bonito_training_dataset_prep:
         "benchmarks/bonito_training_dataset_prep_{sample}.txt"
     params:
         extra_param=config['bonito']['training_data_prep_ext'],
+        bonito=config['bonito']['path']
     threads: config['bonito']['threads']
     shell:
-        "bonito basecaller {input.raw_model} "
+        "{params.bonito} basecaller {input.raw_model} "
         "--alignment-threads {threads} "
         "--reference {input.ref_mmi} "
         "{params.extra_param} "
