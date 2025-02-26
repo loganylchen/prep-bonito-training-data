@@ -1,8 +1,8 @@
 rule get_bonito_models:
     output:
-        rna_models = 'models/bonito/raw_models/rna002_70bps_hac@v3'
+        rna_models = directory('models/rna002_70bps_hac@v3')
     params:
-        output_dir= 'models/bonito/raw_models',
+        output_dir= 'models/',
         bonito=config['bonito']['path']
     log:
         "logs/get_bonito_models.log"
@@ -18,7 +18,7 @@ rule get_bonito_models:
 rule bonito_training_dataset_prep:
     input:
         raw_signal_directory = 'data/{sample}/pod5',
-        raw_model = 'models/bonito/raw_models/rna002_70bps_hac@v3',
+        raw_model = 'models/rna002_70bps_hac@v3',
         ref_mmi='resources/reference.mmi'
     output:
         output_bam="training_data/{sample}/basecalled.bam",
