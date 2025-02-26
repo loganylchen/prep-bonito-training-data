@@ -1,0 +1,12 @@
+samples: config/samples.tsv
+
+reference:
+  transcriptome: data/ref.fa
+
+bonito:
+  path:
+  training_data_prep_ext: --rna --batchsize 1024 --device 'cuda:0'  --save-ctc
+  threads: 12
+
+samtools:
+  threads: 12

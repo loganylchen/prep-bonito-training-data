@@ -1,0 +1,38 @@
+
+
+import os
+from snakemake.utils import min_version
+
+min_version("6.4.1")
+
+
+wildcard_constraints:
+    sample="[0-9a-zA-Z]+_?[0-9]*"
+
+
+
+##### setup report #####
+configfile: "config/config.yaml"
+
+
+##### setup singularity #####
+
+
+# this container defines the underlying OS for each job when using the workflow
+# with --use-conda --use-singularity
+# container: "docker://condaforge/mambaforge:22.11.1-4"
+
+
+
+
+include: "rules/common.smk"
+include: "rules/ref.smk"
+include: "rules/bonito.smk"
+
+
+##### target rules #####
+
+
+rule all:
+    input:
+        get_final_output()
