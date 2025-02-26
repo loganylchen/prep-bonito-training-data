@@ -4,7 +4,7 @@ reference:
   transcriptome: data/ref.fa
 
 bonito:
-  path:
+  path: /SSD/logan/miniforge3/envs/bonito/bin/bonito
   training_data_prep_ext: --rna --batchsize 1024 --device 'cuda:0'  --save-ctc
   threads: 12
 
