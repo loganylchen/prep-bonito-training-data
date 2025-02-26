@@ -35,9 +35,9 @@ rule bonito_training_dataset_prep:
     shell:
         "bonito basecaller {input.raw_model} "
         "--alignment-threads {threads} "
-        '--reference {input.ref_mmi} "
+        "--reference {input.ref_mmi} "
         "{params.extra_param} "
-        "{input.raw_signal_directory} > {output.output_bam} 2>{log}'
+        "{input.raw_signal_directory} > {output.output_bam} 2>{log}"
 
 
 
